@@ -1,0 +1,20 @@
+title: Helmut Hoffer von Ankershoffen né Oertel - Stream
+email: helmuthva@googlemail.com
+description: >-
+  Stream of Helmut Hoffer von Ankershoffen né Oertel gathered from various sources such as Twitter, LinkedIn, Instagram, YouTube and SoundCloud.
+baseurl: "/"
+url: "https://stream.hoffer-von-ankershoffen.me"
+url_main: "https://helmut.hoffer-von-ankershoffen.me"
+url_blog: "https://blog.polarize.ai"
+twitter_username: h_ankershoffen
+github_username:  helmut-hoffer-von-ankershoffen
+google_analytics: UA-154035607-1
+timezone: Europe/Berlin
+markdown: kramdown
+theme: jekyll-theme-midnight
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+paginate: 5
+excerpt_separator: <!--more-->

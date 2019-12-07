@@ -1,0 +1,70 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="{{ '/assets/js/respond.js' | relative_url }}"></script>
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 8]>
+  <link rel="stylesheet" href="{{ '/assets/css/ie.css' | relative_url }}">
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  {% if page.url == "/" or page.url  == "/index.html" %}
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  {% else %}
+    <title>{{ page.date }} - {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  {% endif %}
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@{{ site.twitter_username }}">
+  <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+
+  <meta content="{{ site.title }}" property="og:site_name">
+
+  {% if page.url == "/" or page.url  == "/index.html" %}
+    {% if page.title %}
+      <meta name="twitter:title" content="{{ page.title }}">
+      <meta content="{{ page.title }}" property="og:title">
+      <meta content="article" property="og:type">
+    {% else %}
+      <meta name="twitter:title" content="{{ site.title }}">
+      <meta content="{{ site.title }}" property="og:title">
+      <meta content="website" property="og:type">
+    {% endif %}
+
+    {% if page.description %}
+      <meta name="twitter:description" content="{{ page.description }}">
+      <meta content="{{ page.description }}" property="og:description">
+    {% else %}
+      <meta name="twitter:description" content="{{ site.description }}">
+      <meta content="{{ site.description }}" property="og:description">
+    {% endif %}
+  {% else %}
+    <meta name="twitter:title" content="{{ page.date }} - {{ page.title }}">
+    <meta content="{{ page.date }} - {{ page.title }}" property="og:title">
+    <meta content="article" property="og:type">
+    <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <meta content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" property="og:description">
+  {% endif %}
+
+  {% if page.url %}
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+    <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+  {% endif %}
+
+  {% if page.date %}
+    <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+  {% endif %}
+
+  <meta name="google-site-verification" content="flkw8C846FvE0Tizo3SgysygMoGxy91yhBtHtq2P1wc" />
+
+</head>

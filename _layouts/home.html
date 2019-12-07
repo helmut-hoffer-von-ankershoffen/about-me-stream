@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<section>
+  
+  <div id="title">
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+  </div>
+
+  <h2>Latest entries &hellip;</h2>
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+      <li class="post">
+          <div class="excerpt">
+            {{ post.content }}
+          </div>
+          <div class="read-more">
+            <a href="{{ post.url }}" title="{{ post.date }}">Read more &hellip;</a>
+          </div>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Show more &hellip;</h2>
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a> / 
+    {% endif %}
+    <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      / <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+    {% endif %}
+  </div>
+
+</section>

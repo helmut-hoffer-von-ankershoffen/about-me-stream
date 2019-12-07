@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <hgroup>
+        <h1 itemprop="name"><a rel="bookmark" title="{{ page.title }}" href="#">{{ page.title }}</a></h1>
+        <h2>Published at <time itemprop="datePublished">{{ page.date }}</time> via <a class="username" href="https://twitter.com/{{ page.username}}">@h_ankershoffen</a></h2>
+    </hgroup>
+  </header>
+
+  <div class="post-content -article" itemprop="articleBody">
+      {{ page.content }}
+  </div>
+  
+  <footer>
+    <ul>
+      <li>Author: <a rel="author" href="https://helmut.hoffer-von-ankershoffen.me">Helmut Hoffer von Ankershoffen né Oertel</a></li>
+      <li>Original tweet: <a rel="alternate" href="{{ page.link }}">{{ page.link }}</a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+<h2>Show more &hellip;</h2>
+<div class="pagination">
+    {% if page.previous.url %}
+      <a href="{{ page.previous.url }}" class="previous">Previous</a> /
+    {% endif %}
+    {% if page.next.url %}
+      <a href="{{ page.next.url }}" class="next">Next</a>
+    {% endif %}
+</div>

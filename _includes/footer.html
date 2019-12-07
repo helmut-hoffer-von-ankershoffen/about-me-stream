@@ -1,0 +1,34 @@
+<hr style="margin-top: 25px"/>
+<footer>
+  <div class="avatar">
+    <a href="https://helmut.hoffer-von-ankershoffen.me">
+      <img src="https://helmut.hoffer-von-ankershoffen.me/assets/images/helmut-hoffer-von-ankershoffen-ne-oertel-head.jpg" alt="Helmut Hoffer von Ankershoffen né Oertel" />
+    </a>
+  </div>
+  <div class="links">
+    <ul>
+      <li>
+        My <a href="/">Stream</a>
+      </li>
+      <li>
+        Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>
+      </li>
+      <li>
+        Visit <a href="{{ site.url_main }}">me</a>
+      </li>
+      <li>
+        Visit <a href="{{ site.url_blog }}">my Blog</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+{% if site.google_analytics %}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', '{{ site.google_analytics }}', 'auto');
+    ga('send', 'pageview');
+  </script>
+{% endif %}
