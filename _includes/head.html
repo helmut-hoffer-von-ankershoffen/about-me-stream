@@ -14,10 +14,14 @@
   <![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  {% if page.url == "/" or page.url  == "/index.html" %}
-    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  {% else %}
+  {% if page.path contains '_posts' %}
     <title>{{ page.date }} - {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  {% else %}
+    {% if paginator.page > 1 %}
+      <title>{{ paginator.page }} | {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    {% else %}
+      <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    {% endif %}
   {% endif %}
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
@@ -30,7 +34,13 @@
 
   <meta content="{{ site.title }}" property="og:site_name">
 
-  {% if page.url == "/" or page.url  == "/index.html" %}
+  {% if page.path contains '_posts' %}
+    <meta name="twitter:title" content="{{ page.date }} - {{ page.title }}">
+    <meta content="{{ page.date }} - {{ page.title }}" property="og:title">
+    <meta content="article" property="og:type">
+    <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <meta content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" property="og:description">
+  {% else %}
     {% if page.title %}
       <meta name="twitter:title" content="{{ page.title }}">
       <meta content="{{ page.title }}" property="og:title">
@@ -48,12 +58,6 @@
       <meta name="twitter:description" content="{{ site.description }}">
       <meta content="{{ site.description }}" property="og:description">
     {% endif %}
-  {% else %}
-    <meta name="twitter:title" content="{{ page.date }} - {{ page.title }}">
-    <meta content="{{ page.date }} - {{ page.title }}" property="og:title">
-    <meta content="article" property="og:type">
-    <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-    <meta content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" property="og:description">
   {% endif %}
 
   {% if page.url %}
