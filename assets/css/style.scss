@@ -3,11 +3,11 @@
 
 @import "{{ site.theme }}";
 
-footer > div.avatar {
+footer div.avatar {
     float: left;
 }
 
-footer > div.links {
+footer div.links {
     float: right;
     margin-top: 30px;
 }
