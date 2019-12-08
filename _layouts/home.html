@@ -3,12 +3,13 @@ layout: default
 ---
 
 <section>
-  
+
   <div id="title">
     <h1>{{ site.title }}</h1>
-    <p>{{ site.description }}</p>
   </div>
 
+  {{ content }}
+  
   <h2>Latest entries &hellip;</h2>
   <ul class="post-list">
     {% for post in paginator.posts %}
@@ -26,7 +27,7 @@ layout: default
   <h2>Show more &hellip;</h2>
   <div class="pagination">
     {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a> / 
+      <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a> /
     {% endif %}
     <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
     {% if paginator.next_page %}

@@ -18,3 +18,10 @@ plugins:
   - jekyll-sitemap
 paginate: 5
 excerpt_separator: <!--more-->
+exclude:
+  - workflow
+  - .idea
+  - .git
+  - Makefile
+  - README.md
+  - _compress_images_cache.yml
