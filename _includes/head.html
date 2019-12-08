@@ -15,7 +15,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   {% if page.path contains '_posts' %}
-    <title>{{ page.date }} - {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    {% assign tagCount = page.tags | size %}
+    {% if tagCount > 0 %}
+      <title>#{{ page.tags | join: ", #" }} - {{ page.date }} - {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    {% else %}
+      <title>{{ page.date }} - {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    {% endif %}
   {% else %}
     {% if paginator.page > 1 %}
       <title>{{ paginator.page }} | {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
@@ -35,6 +40,14 @@
   <meta content="{{ site.title }}" property="og:site_name">
 
   {% if page.path contains '_posts' %}
+    {% assign tagCount = page.tags | size %}
+    {% if tagCount > 0 %}
+      <meta name="twitter:title" content="#{{ page.tags | join: ", #" }} - {{ page.date }} - {{ page.title }}">
+      <meta content="#{{ page.tags | join: ", #" }} - {{ page.date }} - {{ page.title }}" property="og:title">
+    {% else %}
+      <meta name="twitter:title" content="{{ page.date }} - {{ page.title }}">
+      <meta content="{{ page.date }} - {{ page.title }}" property="og:title">
+    {% endif %}
     <meta name="twitter:title" content="{{ page.date }} - {{ page.title }}">
     <meta content="{{ page.date }} - {{ page.title }}" property="og:title">
     <meta content="article" property="og:type">
