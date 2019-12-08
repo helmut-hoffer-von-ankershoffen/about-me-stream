@@ -8,7 +8,7 @@ url_main: "https://helmut.hoffer-von-ankershoffen.me"
 url_blog: "https://blog.polarize.ai"
 twitter_username: h_ankershoffen
 github_username:  helmut-hoffer-von-ankershoffen
-google_analytics: UA-154035607-1
+google_analytics: UA-154035607-2
 timezone: Europe/Berlin
 markdown: kramdown
 theme: jekyll-theme-midnight
