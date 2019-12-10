@@ -1,0 +1,17 @@
+---
+- hosts: all
+
+  connection: local
+
+  tasks:
+    - name: Add mappings to /etc/hosts
+      tags:
+        - hosts
+      become: true
+      blockinfile:
+        path: /etc/hosts
+        block: |
+          {{ item.ip }} {{ item.name }}
+        marker: "# {mark} helmut-hoffer-von-ankershoffen/about-me-stream {{ item.name }}"
+      with_items:
+        - { name: stream.helmut-hoffer-von-ankershoffen.local, ip: 12.0.0.104 }

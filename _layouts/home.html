@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+<section>
+
+  <div id="title">
+    <h1>{{ site.title }}</h1>
+  </div>
+
+  {{ content }}
+
+  <h2>Latest entries &hellip;</h2>
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+      <li class="post">
+          <div class="excerpt">
+            {{ post.content }}
+          </div>
+          <div class="read-more">
+            <a href="{{ post.url }}" title="{{ post.date }}">Read more &hellip;</a>
+          </div>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Explore topics &hellip;</h2>
+  {% assign rawtags = "" %}
+  {% for post in site.posts %}
+    {% assign ttags = post.tags | join:'|' | append:'|' %}
+    {% assign rawtags = rawtags | append:ttags %}
+  {% endfor %}
+  {% assign rawtags = rawtags | split:'|' | sort %}
+
+  {% assign site.tags = "" %}
+  {% for tag in rawtags %}
+    {% if tag != "" %}
+      {% if tags == "" %}
+        {% assign tags = tag | split:'|' %}
+      {% endif %}
+      {% unless tags contains tag %}
+        {% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+  <ul>
+    {% for tag in tags %}
+      {% if tag != "" %}
+      <li>
+        <a target="_blank" href="https://search.freefind.com/find.html?si=20380144&pid=r&n=0&_charset_=UTF-8&bcd=%C3%B7&query={{ tag | url_encode }}">#{{ tag }}</a>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <h2>Show more &hellip;</h2>
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a> /
+    {% endif %}
+    <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      / <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+    {% endif %}
+  </div>
+
+</section>
