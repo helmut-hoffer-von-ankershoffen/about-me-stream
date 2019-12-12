@@ -17,8 +17,8 @@ layout: default
 
   <footer>
     <ul>
-      <li>Author: <a rel="author" href="https://helmut.hoffer-von-ankershoffen.me">Helmut Hoffer von Ankershoffen né Oertel</a></li>
-      <li>Original tweet: <a rel="alternate" href="{{ page.link }}">{{ page.link }}</a></li>
+      <li>Author: <a rel="author me" href="https://helmut.hoffer-von-ankershoffen.me">Helmut Hoffer von Ankershoffen né Oertel</a></li>
+      <li>Original tweet: <a rel="alternate me" href="{{ page.link }}">{{ page.link }}</a></li>
     </ul>
   </footer>
 
@@ -39,9 +39,9 @@ layout: default
 <h2>Show more &hellip;</h2>
 <div class="pagination">
     {% if page.previous.url %}
-      <a href="{{ page.previous.url }}" class="previous">Previous</a> /
+      <a rel="prev" href="{{ page.previous.url }}" class="previous">Previous</a> /
     {% endif %}
     {% if page.next.url %}
-      <a href="{{ page.next.url }}" class="next">Next</a>
+      <a rel="next" href="{{ page.next.url }}" class="next">Next</a>
     {% endif %}
 </div>
