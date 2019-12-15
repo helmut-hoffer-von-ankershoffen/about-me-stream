@@ -17,8 +17,8 @@ layout: default
 
   <footer>
     <ul>
-      <li>Author: <a rel="author me" href="https://helmut.hoffer-von-ankershoffen.me">Helmut Hoffer von Ankershoffen né Oertel</a></li>
-      <li>Original tweet: <a rel="alternate me" href="{{ page.link }}">{{ page.link }}</a></li>
+      <li>Author: <a rel="author" href="https://helmut.hoffer-von-ankershoffen.me">Helmut Hoffer von Ankershoffen né Oertel</a></li>
+      <li>Original tweet: <a rel="alternate" href="{{ page.link }}">{{ page.link }}</a></li>
     </ul>
   </footer>
 
@@ -30,7 +30,7 @@ layout: default
   <ul>
     {% for tag in page.tags %}
       <li>
-        <a target="_blank" href="https://search.freefind.com/find.html?si=20380144&pid=r&n=0&_charset_=UTF-8&bcd=%C3%B7&query={{ tag | url_encode }}">#{{ tag }}</a>
+        <a rel="tag" target="_blank" href="https://search.freefind.com/find.html?si=20380144&pid=r&n=0&_charset_=UTF-8&bcd=%C3%B7&query={{ tag | url_encode }}">#{{ tag }}</a>
       </li>
     {% endfor %}
   </ul>

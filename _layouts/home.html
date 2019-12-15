@@ -47,7 +47,7 @@ layout: default
     {% for tag in tags %}
       {% if tag != "" %}
       <li>
-        <a target="_blank" href="https://search.freefind.com/find.html?si=20380144&pid=r&n=0&_charset_=UTF-8&bcd=%C3%B7&query={{ tag | url_encode }}">#{{ tag }}</a>
+        <a rel="tag" target="_blank" href="https://search.freefind.com/find.html?si=20380144&pid=r&n=0&_charset_=UTF-8&bcd=%C3%B7&query={{ tag | url_encode }}">#{{ tag }}</a>
       </li>
       {% endif %}
     {% endfor %}
