@@ -11,5 +11,6 @@ _site
 .jekyll-metadata
 *.swp
 .jekyll-crosspost_to_medium
+.jekyll-cache
 .medium.token
 .algolia.token

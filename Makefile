@@ -44,6 +44,11 @@ requirements-bundle: ## Install bundle requirements on workstation
 	rbenv rehash
 	bundle install
 
+requirements-bundle-update: ## Update bundles - use when make publish signals strange errors
+	rbenv rehash
+	bundle update
+	bundle install
+
 serve: ## Serve on workstation
 	bundle exec jekyll serve
 
