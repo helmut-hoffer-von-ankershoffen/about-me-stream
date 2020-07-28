@@ -89,7 +89,7 @@ GEM
     jgd (1.12)
       jekyll (>= 1.5.1)
       trollop (= 2.9.9)
-    json (2.2.0)
+    json (2.3.1)
     json-minify (0.0.3)
       json (> 0)
     kramdown (1.17.0)
